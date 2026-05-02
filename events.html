@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الفعاليات | جميع الفعاليات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', 'Tahoma', sans-serif; background: #f5f7fb; }
+        
+        .navbar { background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 0.8rem 2rem; position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 45px; height: 45px; background: linear-gradient(135deg, #1e5799, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; }
+        .guide-title .main-title { font-size: 1rem; font-weight: bold; color: #1e5799; }
+        .guide-title .sub-title { font-size: 0.7rem; color: #764ba2; }
+        .nav-links .nav-link { color: #333; font-weight: 500; margin: 0 5px; transition: 0.3s; }
+        .nav-links .nav-link:hover, .nav-links .nav-link.active { color: #1e5799; background: #f0e6ff; border-radius: 25px; }
+        
+        .section-title { position: relative; margin-bottom: 2rem; padding-right: 1rem; font-weight: bold; color: #1e5799; border-right: 5px solid #764ba2; }
+        
+        .filter-card { background: white; border-radius: 20px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .filter-card label { font-weight: bold; margin-bottom: 0.5rem; display: block; }
+        .filter-card input, .filter-card select { border-radius: 30px; padding: 10px 20px; border: 1px solid #ddd; width: 100%; }
+        
+        .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .event-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
+        .event-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .event-card img { width: 100%; height: 180px; object-fit: cover; }
+        .event-category { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        
+        .no-results { text-align: center; padding: 3rem; background: white; border-radius: 20px; }
+        
+         footer { background: #1a1a2e; color: #eee; padding: 3rem 2rem 1.5rem; margin-top: 3rem; }
+        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: #764ba2; }
+        .social-icons a { display: inline-block; width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; text-align: center; line-height: 38px; margin-left: 10px; color: white; transition: 0.3s; }
+        
+        @media (max-width: 768px) { .carousel-item { height: 300px; } .navbar { padding: 0.5rem 1rem; } }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <div class="logo-area">
+            <div class="logo">📘</div>
+            <div class="guide-title">
+                <div class="main-title">دليل فعاليات الجامعة الافتراضية</div>
+                <div class="sub-title">Virtual University Activity Guide</div>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto nav-links">
+                <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link active" href="events.html">📅 الفعاليات</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ عن الدليل</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">📞 اتصل بنا</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2 class="section-title">📅 جميع الفعاليات</h2>
+    
+    <!-- شريط أدوات البحث والفلترة (حسب التاريخ، التصنيف، الموقع) -->
+<div class="filter-card">
+    <div class="row g-3 align-items-end">
+        <div class="col-md-3">
+            <label>🔍 بحث</label>
+            <input type="text" id="searchInput" class="form-control" placeholder="ابحث عن فعالية...">
+        </div>
+        <div class="col-md-3">
+            <label>🏷️ التصنيف</label>
+            <select id="categoryFilter" class="form-select">
+                <option value="all">جميع التصنيفات</option>
+                <option value="تكنولوجيا">تكنولوجيا</option>
+                <option value="موسيقى">موسيقى</option>
+                <option value="رياضة">رياضة</option>
+                <option value="ثقافة">ثقافة</option>
+                <option value="عائلي">عائلي</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>📍 الموقع</label>
+            <select id="locationFilter" class="form-select">
+                <option value="all">جميع المواقع</option>
+                <option value="المركز الثقافي">المركز الثقافي</option>
+                <option value="مسرح الجامعة">مسرح الجامعة</option>
+                <option value="الصالة الرياضية">الصالة الرياضية</option>
+                <option value="قاعة المعارض">قاعة المعارض</option>
+                <option value="حديقة الجامعة">حديقة الجامعة</option>
+                <option value="مركز الابتكار">مركز الابتكار</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label>📅 التاريخ</label>
+            <input type="date" id="dateFilter" class="form-control">
+        </div>
+        <div class="col-md-12 mt-3">
+            <div class="d-flex gap-2 justify-content-end">
+                <button class="btn btn-outline-secondary" onclick="resetFilters()">
+                    <i class="fas fa-undo-alt"></i> إعادة ضبط
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="resultsCount" class="mb-3 text-muted fw-bold"></div>
+<div class="events-grid" id="eventsGrid"></div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5><i class="fas fa-calendar-alt"></i> دليل الفعاليات</h5>
+                <p>منصتك الأولى لاستكشاف الفعاليات الثقافية والرياضية والفنية في الجامعة الافتراضية.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>روابط سريعة</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="events.html">الفعاليات</a></li>
+                    <li><a href="about.html">عن الدليل</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>تواصل معنا</h5>
+                <p><i class="fas fa-envelope"></i> info@svuactivities.com</p>
+                <p><i class="fas fa-phone"></i> +963 11 123 4567</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="bg-light">
+        <div class="text-center">
+            <p>&copy; 2026 دليل فعاليات الجامعة الافتراضية | جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (!localStorage.getItem('eventsData')) {
+    const defaultEvents = [
+        { id: 1, title: "مؤتمر الذكاء الاصطناعي", date: "2026-05-15", location: "المركز الثقافي", category: "تكنولوجيا", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop", desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي" },
+        { id: 2, title: "حفل فرقة الموسيقى العربية", date: "2026-05-18", location: "مسرح الجامعة", category: "موسيقى", image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=250&fit=crop", desc: "أمسية موسيقية رائعة" },
+        { id: 3, title: "بطولة كرة السلة", date: "2026-05-20", location: "الصالة الرياضية", category: "رياضة", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop", desc: "بطولة بين كليات الجامعة" },
+        { id: 4, title: "معرض الفنون التشكيلية", date: "2026-05-22", location: "قاعة المعارض", category: "ثقافة", image: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=250&fit=crop", desc: "معرض فني يضم أعمال الطلاب في الرسم والنحت" },
+        { id: 5, title: "يوم العائلة", date: "2026-05-25", location: "حديقة الجامعة", category: "عائلي", image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=250&fit=crop", desc: "فعاليات ترفيهية للعائلة" },
+        { id: 6, title: "هاكاثون البرمجة", date: "2026-05-28", location: "مركز الابتكار", category: "تكنولوجيا", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=250&fit=crop", desc: "مسابقة برمجة لمدة 24 ساعة" }
+    ];
+    localStorage.setItem('eventsData', JSON.stringify(defaultEvents));
+ }
+    let events = JSON.parse(localStorage.getItem('eventsData')) || [];
+
+    function getCategoryColor(cat) {
+        const colors = { 'تكنولوجيا':'primary', 'موسيقى':'success', 'رياضة':'danger', 'ثقافة':'warning', 'عائلي':'info' };
+        return colors[cat] || 'secondary';
+    }
+
+    function displayEvents() {
+        const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
+        const category = document.getElementById('categoryFilter')?.value || 'all';
+        const location = document.getElementById('locationFilter')?.value || 'all';
+        const date = document.getElementById('dateFilter')?.value || '';
+        
+        const filtered = events.filter(e => {
+            return (search === '' || e.title.toLowerCase().includes(search) || e.desc.toLowerCase().includes(search)) &&
+                   (category === 'all' || e.category === category) &&
+                   (location === 'all' || e.location.trim() === location.trim()) &&
+                   (date === '' || e.date === date);
+        });
+        
+        document.getElementById('resultsCount').innerHTML = `📊 تم العثور على ${filtered.length} فعالية من أصل ${events.length}`;
+        
+        const grid = document.getElementById('eventsGrid');
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div class="no-results"><i class="fas fa-calendar-times fa-4x mb-3"></i><h5>لا توجد فعاليات</h5><button class="btn btn-primary" onclick="resetFilters()">إعادة ضبط</button></div>`;
+            return;
+        }
+        
+        grid.innerHTML = filtered.map(e => `
+            <div class="event-card">
+                <img src="${e.image}"><div class="p-3">
+                <span class="event-category bg-${getCategoryColor(e.category)} text-white">${e.category}</span>
+                <h5 class="mt-2">${e.title}</h5>
+                <p class="text-muted small"><i class="far fa-calendar"></i> ${e.date}</p>
+                <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> ${e.location}</p>
+                <p class="small">${e.desc.substring(0, 80)}...</p>
+                <a href="event.html?id=${e.id}" class="btn btn-sm btn-outline-primary mt-2">التفاصيل</a>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    function applyFilters() { displayEvents(); }
+   
+// تعديل resetFilters لتعيد ضبط الحقول ثم تعرض النتائج
+function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('categoryFilter').value = 'all';
+    document.getElementById('locationFilter').value = 'all';
+    document.getElementById('dateFilter').value = '';
+    displayEvents();  // تحديث النتائج مباشرة
+}
+
+// ربط الأحداث (نفسها)
+document.getElementById('searchInput')?.addEventListener('keyup', displayEvents);
+document.getElementById('categoryFilter')?.addEventListener('change', displayEvents);
+document.getElementById('locationFilter')?.addEventListener('change', displayEvents);
+document.getElementById('dateFilter')?.addEventListener('change', displayEvents);
+    
+    displayEvents();
+</script>
+</body>
+</html>
