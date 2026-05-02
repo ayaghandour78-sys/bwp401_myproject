@@ -6,57 +6,7 @@
     <title>دليل فعاليات الجامعة الافتراضية | الرئيسية</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cairo', 'Tahoma', sans-serif; background: #f5f7fb; }
-        
-        .navbar { background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 0.8rem 2rem; position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo { width: 45px; height: 45px; background: linear-gradient(135deg, #1e5799, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; }
-        .guide-title .main-title { font-size: 1rem; font-weight: bold; color: #1e5799; }
-        .guide-title .sub-title { font-size: 0.7rem; color: #764ba2; }
-        .nav-links .nav-link { color: #333; font-weight: 500; margin: 0 5px; transition: 0.3s; }
-        .nav-links .nav-link:hover, .nav-links .nav-link.active { color: #1e5799; background: #f0e6ff; border-radius: 25px; }
-        
-        .section-title { position: relative; margin-bottom: 2rem; padding-right: 1rem; font-weight: bold; color: #1e5799; border-right: 5px solid #764ba2; }
-        
-        .carousel-item { height: 450px; background-size: cover; background-position: center; }
-        .carousel-caption { background: rgba(0,0,0,0.6); border-radius: 20px; padding: 1.5rem; }
-        
-        .scroll-cards { display: flex; overflow-x: auto; gap: 1.5rem; padding: 1rem 0.5rem; scrollbar-width: thin; }
-        .scroll-cards::-webkit-scrollbar { height: 6px; }
-        .scroll-card { min-width: 280px; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .scroll-card:hover { transform: translateY(-5px); }
-        .scroll-card img { width: 100%; height: 160px; object-fit: cover; }
-        .scroll-card .card-body { padding: 1rem; }
-        
-        .category-badges { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-        .badge-btn { padding: 10px 25px; border-radius: 40px; background: white; border: 2px solid #1e5799; color: #1e5799; font-weight: 500; cursor: pointer; transition: 0.3s; }
-        .badge-btn:hover { background: #1e5799; color: white; }
-        
-        .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-        .event-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
-        .event-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .event-card img { width: 100%; height: 180px; object-fit: cover; }
-        .event-category { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
-        
-        /* قسم أسماء و IDs الفريق */
-        .team-section { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-        .team-card { background: #f8f9ff; border-radius: 15px; padding: 1.5rem; text-align: center; transition: 0.3s; border: 1px solid #e0d6f0; }
-        .team-card:hover { transform: translateY(-5px); background: white; }
-        .team-avatar { width: 80px; height: 80px; background: linear-gradient(135deg, #1e5799, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: white; font-weight: bold; }
-        .team-card h3 { color: #1e5799; font-size: 1.1rem; }
-        .team-id { background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-block; }
-        
-        footer { background: #1a1a2e; color: #eee; padding: 3rem 2rem 1.5rem; margin-top: 3rem; }
-        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { color: #764ba2; }
-        .social-icons a { display: inline-block; width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; text-align: center; line-height: 38px; margin-left: 10px; color: white; transition: 0.3s; }
-        .social-icons a:hover { background: #764ba2; transform: translateY(-3px); }
-        
-        @media (max-width: 768px) { .carousel-item { height: 300px; } .navbar { padding: 0.5rem 1rem; } }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
@@ -170,51 +120,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // بيانات الفعاليات (صور حقيقية من Google/Unsplash)
-    const eventsData = [
-        { id: 1, title: "مؤتمر الذكاء الاصطناعي", date: "2026-05-15", location: "المركز الثقافي", category: "تكنولوجيا", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop", desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي" },
-        { id: 2, title: "حفل فرقة الموسيقى العربية", date: "2026-05-18", location: "مسرح الجامعة", category: "موسيقى", image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=250&fit=crop", desc: "أمسية موسيقية رائعة" },
-        { id: 3, title: "بطولة كرة السلة", date: "2026-05-20", location: "الصالة الرياضية", category: "رياضة", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop", desc: "بطولة بين كليات الجامعة" },
-        { id: 4, title: "معرض الفنون التشكيلية", date: "2026-05-22", location: "قاعة المعارض", category: "ثقافة", image: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=250&fit=crop", desc: "معرض فني يضم أعمال الطلاب في الرسم والنحت" },
-        { id: 5, title: "يوم العائلة", date: "2026-05-25", location: "حديقة الجامعة", category: "عائلي", image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=250&fit=crop", desc: "فعاليات ترفيهية للعائلة" },
-        { id: 6, title: "هاكاثون البرمجة", date: "2026-05-28", location: "مركز الابتكار", category: "تكنولوجيا", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=250&fit=crop", desc: "مسابقة برمجة لمدة 24 ساعة" }
-    ];
-
-    function getCategoryColor(cat) {
-        const colors = { 'تكنولوجيا':'primary', 'موسيقى':'success', 'رياضة':'danger', 'ثقافة':'warning', 'عائلي':'info' };
-        return colors[cat] || 'secondary';
-    }
-
-    // عرض الفعاليات البارزة (أفقية)
-    document.getElementById('featuredEvents').innerHTML = eventsData.slice(0,4).map(e => `
-        <div class="scroll-card"><img src="${e.image}"><div class="card-body"><h5>${e.title}</h5><p class="text-muted"><i class="far fa-calendar"></i> ${e.date}</p><span class="badge bg-${getCategoryColor(e.category)}">${e.category}</span></div></div>
-    `).join('');
-
-    // عرض أزرار التصنيفات السريعة
-    const cats = ['الكل','ثقافة','رياضة','موسيقى','عائلي','تكنولوجيا'];
-    document.getElementById('categoryBadges').innerHTML = cats.map(c => `<span class="badge-btn" data-category="${c === 'الكل' ? 'all' : c}">${c === 'الكل' ? '📌' : c === 'ثقافة' ? '📚' : c === 'رياضة' ? '⚽' : c === 'موسيقى' ? '🎵' : c === 'عائلي' ? '👨‍👩‍👧' : '💻'} ${c}</span>`).join('');
-
-    // عرض أحدث الفعاليات
-    function displayLatest() {
-        const grid = document.getElementById('latestEventsGrid');
-        grid.innerHTML = eventsData.map(e => `
-            <div class="event-card" data-category="${e.category}"><img src="${e.image}"><div class="p-3"><span class="event-category bg-${getCategoryColor(e.category)} text-white">${e.category}</span><h5 class="mt-2">${e.title}</h5><p class="text-muted small"><i class="far fa-calendar"></i> ${e.date} <i class="fas fa-map-marker-alt"></i> ${e.location}</p><p class="small">${e.desc.substring(0,60)}...</p><a href="event.html?id=${e.id}" class="btn btn-sm btn-outline-primary">التفاصيل</a></div></div>
-        `).join('');
-    }
-    displayLatest();
-
-    // فلترة التصنيفات
-    document.querySelectorAll('.badge-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const cat = this.getAttribute('data-category');
-            document.querySelectorAll('#latestEventsGrid .event-card').forEach(card => {
-                card.style.display = (cat === 'all' || card.getAttribute('data-category') === cat) ? 'block' : 'none';
-            });
-        });
-    });
-
-    localStorage.setItem('eventsData', JSON.stringify(eventsData));
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
