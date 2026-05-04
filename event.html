@@ -127,7 +127,7 @@
                 <div class="p-4">
                     <div class="d-flex justify-content-between"><h1 style="color:#1e5799;">${event.title}</h1><span class="badge bg-${categoryColors[event.category]} p-2 fs-6">${event.category}</span></div>
                     <div class="row g-3 mt-2">
-                        <div class="col-md-6"><div class="event-info-box"><p><i class="far fa-calendar-alt"></i> <strong>التاريخ:</strong> ${event.date}</p><p><i class="fas fa-clock"></i> <strong>الوقت:</strong> 6:00 مساءً - 10:00 مساءً</p><p><i class="fas fa-map-marker-alt"></i> <strong>المكان:</strong> ${event.location}</p></div></div>
+                        <div class="col-md-6"><div class="event-info-box"><p><i class="far fa-calendar-alt"></i> <strong>التاريخ:</strong> ${event.date}</p><p><i class="fas fa-clock"></i> <strong>الوقت:</strong> ${event.time}</p><p><i class="fas fa-map-marker-alt"></i> <strong>المكان:</strong> ${event.location}</p></div></div>
                         <div class="col-md-6"><div class="event-info-box"><p><i class="fas fa-user-friends"></i> <strong>المنظم:</strong> اتحاد الطلاب</p><p><i class="fas fa-language"></i> <strong>اللغة:</strong> العربية</p><p><i class="fas fa-users"></i> <strong>العدد المتاح:</strong> 200 مقعد</p></div></div>
                     </div>
                     <div class="action-buttons"><button class="btn btn-success" onclick="alert('📅 تمت إضافة الفعالية إلى تقويمك!')"><i class="fas fa-calendar-plus"></i> أضف للتقويم</button><button class="btn btn-outline-primary" onclick="alert('🔗 تم نسخ رابط الفعالية: '+window.location.href)"><i class="fas fa-share-alt"></i> شارك</button></div>
