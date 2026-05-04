@@ -7,11 +7,10 @@ const defaultEvents = [
     { id: 5, title: "يوم العائلة", date: "2026-05-25", time: " صباحاً 10:00 - 5:00 مساءً", location: "حديقة الجامعة", category: "عائلي", image: "assets/img/family_day.jpg", desc: "فعاليات ترفيهية للعائلة" },
     { id: 6, title: "هاكاثون البرمجة", date: "2026-05-28", time: " صباحاً 9:00(لمدة 24 ساعة)", location: "مركز الابتكار", category: "تكنولوجيا", image: "assets/img/hackathon.jpg", desc: "مسابقة برمجة لمدة 24 ساعة" }
 ];
-
-
-if (!localStorage.getItem('eventsData')) {
+if (!localStorage.getItem('eventsData') || JSON.parse(localStorage.getItem('eventsData'))[0].time === undefined) {
     localStorage.setItem('eventsData', JSON.stringify(defaultEvents));
 }
+
 let events = JSON.parse(localStorage.getItem('eventsData')) || [];
 
 function getCategoryColor(cat) {
