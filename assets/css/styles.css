@@ -1,5 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Cairo', 'Tahoma', sans-serif; background: #f5f7fb; }
+body { font-family: 'Cairo', 'Tajawal', sans-serif; background: #f5f7fb; }
 
 .navbar { background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); padding: 0.8rem 2rem; position: sticky; top: 0; z-index: 1000; }
 .logo-area { display: flex; align-items: center; gap: 12px; }
