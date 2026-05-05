@@ -1,6 +1,6 @@
 
 const defaultEvents = [
-    { id: 1, title: "مؤتمر الذكاء الاصطناعي", date: "2026-05-15", time: "  10:00 صباحاً - 4:00 ", location: "المركز الثقافي", category: "تكنولوجيا", image: "assets/img/ai_conf.jpg", desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي" },
+    { id: 1, title: "مؤتمر الذكاء الاصطناعي", date: "2026-05-15", time: "  10:00  صباحاً - 4:00 مساءً", location: "المركز الثقافي", category: "تكنولوجيا", image: "assets/img/ai_conf.jpg", desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي" },
     { id: 2, title: "حفل فرقة الموسيقى العربية", date: "2026-05-18", time: "  8:00 مساءً - 11:00 مساءً", location: "مسرح الجامعة", category: "موسيقى", image: "assets/img/music_event3.jpg", desc: "أمسية موسيقية رائعة" },
     { id: 3, title: "بطولة كرة السلة", date: "2026-05-20", time:  " 2:00 مساءً - 6:00 مساءً ", location: "الصالة الرياضية", category: "رياضة", image: "assets/img/basketball.jpg", desc: "بطولة بين كليات الجامعة" },
     { id: 4, title: "معرض الفنون التشكيلية", date: "2026-05-22", time: "8:00 صباحاً - 11:00 مساءً", location: "قاعة المعارض", category: "ثقافة", image: "assets/img/art_exhibition.jpg", desc: "معرض فني يضم أعمال الطلاب في الرسم والنحت" },
