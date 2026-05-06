@@ -1,124 +1,217 @@
-<!DOCTYPE html>
-<html >
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>دليل فعاليات الجامعة الافتراضية | الرئيسية</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-
-<!--  رأس الصفحة -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <!--  رأس الصفحة -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
         <div class="logo-area">
-            <div class="logo">📘</div>
-            <div class="guide-title">
-                <div class="main-title">دليل فعاليات الجامعة الافتراضية</div>
-                <div class="sub-title">Virtual University Activity Guide</div>
-            </div>
+          <div class="logo">📘</div>
+          <div class="guide-title">
+            <div class="main-title">دليل فعاليات الجامعة الافتراضية</div>
+            <div class="sub-title">Virtual University Activity Guide</div>
+          </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto nav-links">
-                <li class="nav-item"><a class="nav-link active" href="index.html">🏠 الرئيسية</a></li>
-                <li class="nav-item"><a class="nav-link" href="events.html">📅 الفعاليات</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ عن الدليل</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">📞 اتصل بنا</a></li>
-            </ul>
+        <div class="" id="navbarNav">
+          <ul
+            class="navbar-nav ms-auto"
+            style="display: flex; justify-content: center"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"> الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html">الفعاليات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"> عن الدليل</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html"> اتصل بنا</a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+
+    <!-- سلايدر  -->
+    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div
+          class="carousel-item active"
+          style="
+            background-image:
+              linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(&quot;assets/img/s1.jpg&quot;);
+          "
+        >
+          <div class="carousel-caption">
+            <h2>اكتشف الفعاليات المميزة</h2>
+            <a href="events.html" class="btn btn-primary">استكشف الآن</a>
+          </div>
+        </div>
+        <div
+          class="carousel-item"
+          style="
+            background-image:
+              linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(&quot;assets/img/s2.jpg&quot;);
+          "
+        >
+          <div class="carousel-caption">
+            <h2>فعاليات بارزة هذا الأسبوع</h2>
+            <a href="events.html" class="btn btn-primary">احجز مكانك</a>
+          </div>
+        </div>
+        <div
+          class="carousel-item"
+          style="
+            background-image:
+              linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url(&quot;assets/img/s3.jpg&quot;);
+          "
+        >
+          <div class="carousel-caption">
+            <h2>تواصل مع المجتمع</h2>
+            <a href="contact.html" class="btn btn-primary">تواصل معنا</a>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroSlider"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroSlider"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-</nav>
 
-<!-- سلايدر  -->
-<div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/سلايد1.jpg');">
-            <div class="carousel-caption"><h2>اكتشف الفعاليات المميزة</h2><a href="events.html" class="btn btn-primary">استكشف الآن</a></div>
+    <div class="container mt-5">
+      <!--   المشاركين -->
+      <div class="team-section">
+        <h2 class="section-title" style="margin-bottom: 1rem">فريق المشروع</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">آ</div>
+            <h3>آية غندور</h3>
+            <div class="team-id">ID: 294790</div>
+            <p class="text-muted small mt-2">قائد الفريق</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">أ</div>
+            <h3>أحمد الحسين</h3>
+            <div class="team-id">ID: 295169</div>
+            <p class="text-muted small mt-2">مصمم واجهات</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">ن</div>
+            <h3>ناديا الشل</h3>
+            <div class="team-id">ID: 291909</div>
+            <p class="text-muted small mt-2">كاتبة محتوى</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">ر</div>
+            <h3>رنيم عويدات</h3>
+            <div class="team-id">ID: 288986</div>
+            <p class="text-muted small mt-2">مبرمجة</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">م</div>
+            <h3>موسى عبد الرحيم القسيم</h3>
+            <div class="team-id">ID: 288261</div>
+            <p class="text-muted small mt-2">مطور ويب</p>
+          </div>
         </div>
-        <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/سلايد2.jpg');">
-            <div class="carousel-caption"><h2>فعاليات بارزة هذا الأسبوع</h2><a href="events.html" class="btn btn-primary">احجز مكانك</a></div>
-        </div>
-        <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/سلايد3.jpg');">
-            <div class="carousel-caption"><h2>تواصل مع المجتمع</h2><a href="contact.html" class="btn btn-primary">تواصل معنا</a></div>
-        </div>
+        <p style="text-align: center; margin-top: 20px">
+          ✅ عدد أعضاء الفريق: 5
+        </p>
+      </div>
+
+      <!--  فعاليات بارزة هذا الأسبوع   -->
+      <h2 class="section-title">فعاليات بارزة هذا الأسبوع</h2>
+      <div class="scroll-cards" id="featuredEvents"></div>
+
+      <!--  تصنيفات سريعة   -->
+      <h2 class="section-title mt-5">تصنيفات سريعة</h2>
+      <div class="category-badges mb-4" id="categoryBadges"></div>
+
+      <!--  أحدث الفعاليات  -->
+      <h2 class="section-title">أحدث الفعاليات</h2>
+      <div class="events-grid" id="latestEventsGrid"></div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-</div>
 
-<div class="container mt-5">
-   <!--   المشاركين -->
-<div class="team-section">
-    <h2 class="section-title" style="margin-bottom: 1rem;">👥 فريق المشروع</h2>
-    <div class="team-grid">
-        <div class="team-card"><div class="team-avatar">آ</div><h3>آية غندور</h3>
-        <div class="team-id">🆔 ID: 294790</div><p class="text-muted small mt-2">🌟 قائد الفريق</p></div>
-        <div class="team-card"><div class="team-avatar">أ</div><h3>أحمد الحسين</h3>
-        <div class="team-id">🆔 ID: 295169</div><p class="text-muted small mt-2">🎨 مصمم واجهات</p></div>
-        <div class="team-card"><div class="team-avatar">ن</div><h3>ناديا الشل</h3>
-        <div class="team-id">🆔 ID: 291909</div><p class="text-muted small mt-2">📝 كاتبة محتوى</p></div>
-        <div class="team-card"><div class="team-avatar">ر</div><h3>رنيم عويدات</h3>
-        <div class="team-id">🆔 ID: 288986</div><p class="text-muted small mt-2">💻 مبرمجة</p></div>
-        <div class="team-card"><div class="team-avatar">م</div><h3>موسى عبد الرحيم القسيم</h3>
-        <div class="team-id">🆔 ID: 288261</div><p class="text-muted small mt-2">⚙️ مطور ويب</p></div>
-    </div>
-    <p style="text-align: center; margin-top: 20px;">✅ عدد أعضاء الفريق: 5</p>
-</div>
-
-    <!--  فعاليات بارزة هذا الأسبوع   -->
-    <h2 class="section-title">✨ فعاليات بارزة هذا الأسبوع</h2>
-    <div class="scroll-cards" id="featuredEvents"></div>
-
-    <!--  تصنيفات سريعة   -->
-    <h2 class="section-title mt-5">🏷️ تصنيفات سريعة</h2>
-    <div class="category-badges mb-4" id="categoryBadges"></div>
-
-    <!--  أحدث الفعاليات  -->
-    <h2 class="section-title">🆕 أحدث الفعاليات</h2>
-    <div class="events-grid" id="latestEventsGrid"></div>
-</div>
-
-<!--  تذييل الصفحة (معلومات التواصل + حقوق النشر + سوشيال)  -->
-<footer>
-    <div class="container">
+    <!--  تذييل الصفحة -->
+    <footer>
+      <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <h5><i class="fas fa-calendar-alt"></i> دليل الفعاليات</h5>
-                <p>منصتك الأولى لاستكشاف الفعاليات الثقافية والرياضية والفنية في الجامعة الافتراضية.</p>
+          <div class="col-md-4 mb-4">
+            <h5><i class="fas fa-calendar-alt"></i> دليل الفعاليات</h5>
+            <p>
+              منصتك الأولى لاستكشاف الفعاليات الثقافية والرياضية والفنية في
+              الجامعة الافتراضية.
+            </p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>روابط سريعة</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="events.html">الفعاليات</a></li>
+              <li><a href="about.html">عن الدليل</a></li>
+              <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>تواصل معنا</h5>
+            <p><i class="fas fa-envelope"></i> info@svuactivities.com</p>
+            <p><i class="fas fa-phone"></i> +963 11 123 4567</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <div class="col-md-4 mb-4">
-                <h5>روابط سريعة</h5>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="events.html">الفعاليات</a></li>
-                    <li><a href="about.html">عن الدليل</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h5>تواصل معنا</h5>
-                <p><i class="fas fa-envelope"></i> info@svuactivities.com</p>
-                <p><i class="fas fa-phone"></i> +963 11 123 4567</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-        <hr class="bg-light">
+        <hr class="bg-light" />
         <div class="text-center">
-            <p>&copy; 2026 دليل فعاليات الجامعة الافتراضية | جميع الحقوق محفوظة</p>
+          <p>
+            &copy; 2026 دليل فعاليات الجامعة الافتراضية | جميع الحقوق محفوظة
+          </p>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

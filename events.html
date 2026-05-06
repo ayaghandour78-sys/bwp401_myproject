@@ -10,41 +10,57 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
         <div class="logo-area">
-            <div class="logo">📘</div>
-            <div class="guide-title">
-                <div class="main-title">دليل فعاليات الجامعة الافتراضية</div>
-                <div class="sub-title">Virtual University Activity Guide</div>
-            </div>
+          <div class="logo">📘</div>
+          <div class="guide-title">
+            <div class="main-title">دليل فعاليات الجامعة الافتراضية</div>
+            <div class="sub-title">Virtual University Activity Guide</div>
+          </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto nav-links">
-                <li class="nav-item"><a class="nav-link" href="index.html">🏠 الرئيسية</a></li>
-                <li class="nav-item"><a class="nav-link active" href="events.html">📅 الفعاليات</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">ℹ️ عن الدليل</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">📞 اتصل بنا</a></li>
-            </ul>
+        <div class="" id="navbarNav">
+          <ul
+            class="navbar-nav ms-auto"
+            style="display: flex; justify-content: center"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"> الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html"> الفعاليات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"> عن الدليل</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html"> اتصل بنا</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
 <div class="container mt-4">
-    <h2 class="section-title">📅 جميع الفعاليات</h2>
+    <h2 class="section-title"> جميع الفعاليات</h2>
     
-    <!-- شريط أدوات البحث والفلترة (حسب التاريخ، التصنيف، الموقع) -->
+    <!-- شريط  البحث والفلترة  -->
 <div class="filter-card">
     <div class="row g-3 align-items-end">
         <div class="col-md-3">
-            <label>🔍 بحث</label>
+            <label> بحث</label>
             <input type="text" id="searchInput" class="form-control" placeholder="ابحث عن فعالية...">
         </div>
         <div class="col-md-3">
-            <label>🏷️ التصنيف</label>
+            <label> التصنيف</label>
             <select id="categoryFilter" class="form-select">
                 <option value="all">جميع التصنيفات</option>
                 <option value="تكنولوجيا">تكنولوجيا</option>
@@ -55,7 +71,7 @@
             </select>
         </div>
         <div class="col-md-3">
-            <label>📍 الموقع</label>
+            <label> الموقع</label>
             <select id="locationFilter" class="form-select">
                 <option value="all">جميع المواقع</option>
                 <option value="المركز الثقافي">المركز الثقافي</option>
@@ -67,7 +83,7 @@
             </select>
         </div>
         <div class="col-md-3">
-            <label>📅 التاريخ</label>
+            <label> التاريخ</label>
             <input type="date" id="dateFilter" class="form-control">
         </div>
         <div class="col-md-12 mt-3">

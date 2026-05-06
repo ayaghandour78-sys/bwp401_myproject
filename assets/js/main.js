@@ -1,110 +1,300 @@
-
-const defaultEvents = [
-    { id: 1, title: "مؤتمر الذكاء الاصطناعي", date: "2026-05-15", time: "  10:00  صباحاً - 4:00 مساءً", location: "المركز الثقافي", category: "تكنولوجيا", image: "assets/img/ai_conf.jpg", desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي" },
-    { id: 2, title: "حفل فرقة الموسيقى العربية", date: "2026-05-18", time: "  8:00 مساءً - 11:00 مساءً", location: "مسرح الجامعة", category: "موسيقى", image: "assets/img/music_event3.jpg", desc: "أمسية موسيقية رائعة" },
-    { id: 3, title: "بطولة كرة السلة", date: "2026-05-20", time:  " 2:00 مساءً - 6:00 مساءً ", location: "الصالة الرياضية", category: "رياضة", image: "assets/img/basketball.jpg", desc: "بطولة بين كليات الجامعة" },
-    { id: 4, title: "معرض الفنون التشكيلية", date: "2026-05-22", time: "8:00 صباحاً - 11:00 مساءً", location: "قاعة المعارض", category: "ثقافة", image: "assets/img/art_exhibition.jpg", desc: "معرض فني يضم أعمال الطلاب في الرسم والنحت" },
-    { id: 5, title: "يوم العائلة", date: "2026-05-25", time: " 10:00 صباحاً - 5:00 مساءً", location: "حديقة الجامعة", category: "عائلي", image: "assets/img/family_day.jpg", desc: "فعاليات ترفيهية للعائلة" },
-    { id: 6, title: "هاكاثون البرمجة", date: "2026-05-28", time: " 9:00  صباحاً (لمدة 24 ساعة) ", location: "مركز الابتكار", category: "تكنولوجيا", image: "assets/img/hackathon.jpg", desc: "مسابقة برمجة لمدة 24 ساعة" }
+// فعاليات الجامعة
+var defaultEvents = [
+  {
+    id: 1,
+    title: "مؤتمر الذكاء الاصطناعي",
+    date: "2026-05-15",
+    time: "   صباحاً 10:00  - 4:00 مساءً     ",
+    location: "المركز الثقافي",
+    category: "تكنولوجيا",
+    image: "assets/img/ai_conf.jpg",
+    desc: "مؤتمر حول أحدث تقنيات الذكاء الاصطناعي",
+  },
+  {
+    id: 2,
+    title: "حفل فرقة الموسيقى العربية",
+    date: "2026-05-18",
+    time: "  مساءً   8:00 - 11:00 مساءً   ",
+    location: "مسرح الجامعة",
+    category: "موسيقى",
+    image: "assets/img/music_event3.jpg",
+    desc: "أمسية موسيقية رائعة",
+  },
+  {
+    id: 3,
+    title: "بطولة كرة السلة",
+    date: "2026-05-20",
+    time: "   مساءً  2:00 - 6:00 مساءً ",
+    location: "الصالة الرياضية",
+    category: "رياضة",
+    image: "assets/img/basketball.jpg",
+    desc: "بطولة بين كليات الجامعة",
+  },
+  {
+    id: 4,
+    title: "معرض الفنون التشكيلية",
+    date: "2026-05-22",
+    time: "  صباحاً 8:00- 11:00 مساءً   ",
+    location: "قاعة المعارض",
+    category: "ثقافة",
+    image: "assets/img/art_exhibition.jpg",
+    desc: "معرض فني يضم أعمال الطلاب في الرسم والنحت",
+  },
+  {
+    id: 5,
+    title: "يوم العائلة",
+    date: "2026-05-25",
+    time: "   صباحاً 10:00- 5:00 مساءً ",
+    location: "حديقة الجامعة",
+    category: "عائلي",
+    image: "assets/img/family_day.jpg",
+    desc: "فعاليات ترفيهية للعائلة",
+  },
+  {
+    id: 6,
+    title: "هاكاثون البرمجة",
+    date: "2026-05-28",
+    time: "     (لمدة 24 ساعة) صباحاً   9:00 ",
+    location: "مركز الابتكار",
+    category: "تكنولوجيا",
+    image: "assets/img/hackathon.jpg",
+    desc: "مسابقة برمجة لمدة 24 ساعة",
+  },
 ];
-if (!localStorage.getItem('eventsData') || JSON.parse(localStorage.getItem('eventsData'))[0].time === undefined) {
-    localStorage.setItem('eventsData', JSON.stringify(defaultEvents));
+
+if (
+  !localStorage.getItem("eventsData") ||
+  JSON.parse(localStorage.getItem("eventsData"))[0].time === undefined
+) {
+  localStorage.setItem("eventsData", JSON.stringify(defaultEvents));
 }
 
-let events = JSON.parse(localStorage.getItem('eventsData')) || [];
+var events = JSON.parse(localStorage.getItem("eventsData")) || [];
 
 function getCategoryColor(cat) {
-    const colors = { 'تكنولوجيا':'primary', 'موسيقى':'success', 'رياضة':'danger', 'ثقافة':'warning', 'عائلي':'info' };
-    return colors[cat] || 'secondary';
+  if (cat == "تكنولوجيا") return "primary";
+  if (cat == "موسيقى") return "success";
+  if (cat == "رياضة") return "danger";
+  if (cat == "ثقافة") return "warning";
+  if (cat == "عائلي") return "info";
+  return "secondary";
 }
 
-
+// الصفحة الرئيسية
 function initIndexPage() {
-    const featuredDiv = document.getElementById('featuredEvents');
-    if (featuredDiv) {
-        featuredDiv.innerHTML = defaultEvents.slice(0,4).map(e => `
-            <div class="scroll-card"><img src="${e.image}"><div class="card-body"><h5>${e.title}</h5><p class="text-muted"><i class="far fa-calendar"></i> ${e.date}</p><span class="badge bg-${getCategoryColor(e.category)}">${e.category}</span></div></div>
-        `).join('');
+  // فعاليات بارزة
+  var featuredDiv = document.getElementById("featuredEvents");
+  if (featuredDiv) {
+    var htmlFeatured = "";
+    for (var i = 0; i < 4; i++) {
+      var e = defaultEvents[i];
+      htmlFeatured +=
+        '<div class="scroll-card">' +
+        '<img src="' +
+        e.image +
+        '">' +
+        '<div class="card-body">' +
+        "<h5>" +
+        e.title +
+        "</h5>" +
+        '<p class="text-muted"><i class="far fa-calendar"></i> ' +
+        e.date +
+        "</p>" +
+        '<span class="badge bg-' +
+        getCategoryColor(e.category) +
+        '">' +
+        e.category +
+        "</span>" +
+        "</div></div>";
     }
-    const badgesDiv = document.getElementById('categoryBadges');
-    if (badgesDiv) {
-        const cats = ['الكل','ثقافة','رياضة','موسيقى','عائلي','تكنولوجيا'];
-        badgesDiv.innerHTML = cats.map(c => `<span class="badge-btn" data-category="${c === 'الكل' ? 'all' : c}">${c === 'الكل' ? '📌' : c === 'ثقافة' ? '📚' : c === 'رياضة' ? '⚽' : c === 'موسيقى' ? '🎵' : c === 'عائلي' ? '👨‍👩‍👧' : '💻'} ${c}</span>`).join('');
-        document.querySelectorAll('.badge-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const cat = this.getAttribute('data-category');
-                document.querySelectorAll('#latestEventsGrid .event-card').forEach(card => {
-                    card.style.display = (cat === 'all' || card.getAttribute('data-category') === cat) ? 'block' : 'none';
-                });
-            });
-        });
+    featuredDiv.innerHTML = htmlFeatured;
+  }
+  // أزرار التصنيفات السريعة
+  var badgesDiv = document.getElementById("categoryBadges");
+  if (badgesDiv) {
+    var catsArray = ["الكل", "ثقافة", "رياضة", "موسيقى", "عائلي", "تكنولوجيا"];
+    var badgesHtml = "";
+    for (var j = 0; j < catsArray.length; j++) {
+      var catName = catsArray[j];
+      var dataCat = catName == "الكل" ? "all" : catName;
+      var emoji = "";
+
+      badgesHtml +=
+        '<span class="badge-btn" data-category="' +
+        dataCat +
+        '">' +
+        emoji +
+        " " +
+        catName +
+        "</span>";
     }
-    const latestGrid = document.getElementById('latestEventsGrid');
-    if (latestGrid) {
-        latestGrid.innerHTML = defaultEvents.map(e => `
-            <div class="event-card" data-category="${e.category}"><img src="${e.image}"><div class="p-3"><span class="event-category bg-${getCategoryColor(e.category)} text-white">${e.category}</span><h5 class="mt-2">${e.title}</h5><p class="text-muted small"><i class="far fa-calendar"></i> ${e.date} <i class="fas fa-map-marker-alt"></i> ${e.location}</p><p class="small">${e.desc.substring(0,60)}...</p><a href="event.html?id=${e.id}" class="btn btn-sm btn-outline-primary">التفاصيل</a></div></div>
-        `).join('');
+    badgesDiv.innerHTML = badgesHtml;
+    // الضغط لكل زر
+    var allBtns = document.querySelectorAll(".badge-btn");
+    for (var k = 0; k < allBtns.length; k++) {
+      allBtns[k].addEventListener("click", function () {
+        var selectedCat = this.getAttribute("data-category");
+        var cards = document.querySelectorAll("#latestEventsGrid .event-card");
+        for (var c = 0; c < cards.length; c++) {
+          if (
+            selectedCat == "all" ||
+            cards[c].getAttribute("data-category") == selectedCat
+          ) {
+            cards[c].style.display = "block";
+          } else {
+            cards[c].style.display = "none";
+          }
+        }
+      });
     }
+  }
+  // أحدث الفعاليات
+  var latestGrid = document.getElementById("latestEventsGrid");
+  if (latestGrid) {
+    var latestHtml = "";
+    for (var m = 0; m < defaultEvents.length; m++) {
+      var ev = defaultEvents[m];
+      latestHtml +=
+        '<div class="event-card" data-category="' +
+        ev.category +
+        '">' +
+        '<img src="' +
+        ev.image +
+        '">' +
+        '<div class="p-3">' +
+        '<span class="event-category bg-' +
+        getCategoryColor(ev.category) +
+        ' text-white">' +
+        ev.category +
+        "</span>" +
+        '<h5 class="mt-2">' +
+        ev.title +
+        "</h5>" +
+        '<p class="text-muted small"><i class="far fa-calendar"></i> ' +
+        ev.date +
+        ' <i class="fas fa-map-marker-alt"></i> ' +
+        ev.location +
+        "</p>" +
+        '<p class="small">' +
+        ev.desc.substring(0, 60) +
+        "...</p>" +
+        '<a href="event.html?id=' +
+        ev.id +
+        '" class="btn btn-sm btn-outline-primary">التفاصيل</a>' +
+        "</div></div>";
+    }
+    latestGrid.innerHTML = latestHtml;
+  }
 }
 
-
+// فلترة الفعاليات
 function displayEvents() {
-    const events = JSON.parse(localStorage.getItem('eventsData')) || [];
-    const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
-    const category = document.getElementById('categoryFilter')?.value || 'all';
-    const location = document.getElementById('locationFilter')?.value || 'all';
-    const date = document.getElementById('dateFilter')?.value || '';
+  var eventsArr = JSON.parse(localStorage.getItem("eventsData")) || [];
+  var searchText = document.getElementById("searchInput")
+    ? document.getElementById("searchInput").value.toLowerCase()
+    : "";
+  var catFilter = document.getElementById("categoryFilter")
+    ? document.getElementById("categoryFilter").value
+    : "all";
+  var locFilter = document.getElementById("locationFilter")
+    ? document.getElementById("locationFilter").value
+    : "all";
+  var dateFilter = document.getElementById("dateFilter")
+    ? document.getElementById("dateFilter").value
+    : "";
 
-    const filtered = events.filter(e => {
-        return (search === '' || e.title.toLowerCase().includes(search) || e.desc.toLowerCase().includes(search)) &&
-               (category === 'all' || e.category === category) &&
-               (location === 'all' || e.location.trim() === location.trim()) &&
-               (date === '' || e.date === date);
-    });
-
-    const countDiv = document.getElementById('resultsCount');
-    if (countDiv) countDiv.innerHTML = `📊 تم العثور على ${filtered.length} فعالية من أصل ${events.length}`;
-
-    const grid = document.getElementById('eventsGrid');
-    if (!grid) return;
-    if (filtered.length === 0) {
-        grid.innerHTML = `<div class="no-results"><i class="fas fa-calendar-times fa-4x mb-3"></i><h5>لا توجد فعاليات</h5><button class="btn btn-primary" onclick="resetFilters()">إعادة ضبط</button></div>`;
-        return;
+  var filteredEvents = [];
+  for (var i = 0; i < eventsArr.length; i++) {
+    var ev = eventsArr[i];
+    var match = true;
+    if (searchText != "") {
+      if (
+        ev.title.toLowerCase().indexOf(searchText) == -1 &&
+        ev.desc.toLowerCase().indexOf(searchText) == -1
+      ) {
+        match = false;
+      }
     }
-    grid.innerHTML = filtered.map(e => `
-        <div class="event-card">
-            <img src="${e.image}"><div class="p-3">
-            <span class="event-category bg-${getCategoryColor(e.category)} text-white">${e.category}</span>
-            <h5 class="mt-2">${e.title}</h5>
-            <p class="text-muted small"><i class="far fa-calendar"></i> ${e.date}</p>
-            <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> ${e.location}</p>
-            <p class="small">${e.desc.substring(0, 80)}...</p>
-            <a href="event.html?id=${e.id}" class="btn btn-sm btn-outline-primary mt-2">التفاصيل</a>
-            </div>
-        </div>
-    `).join('');
+    if (catFilter != "all" && ev.category != catFilter) match = false;
+    if (locFilter != "all" && ev.location != locFilter) match = false;
+    if (dateFilter != "" && ev.date != dateFilter) match = false;
+    if (match) filteredEvents.push(ev);
+  }
+
+  var countDiv = document.getElementById("resultsCount");
+  if (countDiv) {
+    countDiv.innerHTML =
+      "تم العثور على " +
+      filteredEvents.length +
+      " فعالية من أصل " +
+      eventsArr.length;
+  }
+
+  var grid = document.getElementById("eventsGrid");
+  if (!grid) return;
+  if (filteredEvents.length == 0) {
+    grid.innerHTML =
+      '<div class="no-results"><i class="fas fa-calendar-times fa-4x mb-3"></i><h5>لا توجد فعاليات</h5><button class="btn btn-primary" onclick="resetFilters()">إعادة ضبط</button></div>';
+    return;
+  }
+
+  var gridHtml = "";
+  for (var j = 0; j < filteredEvents.length; j++) {
+    var evj = filteredEvents[j];
+    gridHtml +=
+      '<div class="event-card">' +
+      '<img src="' +
+      evj.image +
+      '"><div class="p-3">' +
+      '<span class="event-category bg-' +
+      getCategoryColor(evj.category) +
+      ' text-white">' +
+      evj.category +
+      "</span>" +
+      '<h5 class="mt-2">' +
+      evj.title +
+      "</h5>" +
+      '<p class="text-muted small"><i class="far fa-calendar"></i> ' +
+      evj.date +
+      "</p>" +
+      '<p class="text-muted small"><i class="fas fa-map-marker-alt"></i> ' +
+      evj.location +
+      "</p>" +
+      '<p class="small">' +
+      evj.desc.substring(0, 80) +
+      "...</p>" +
+      '<a href="event.html?id=' +
+      evj.id +
+      '" class="btn btn-sm btn-outline-primary mt-2">التفاصيل</a>' +
+      "</div></div>";
+  }
+  grid.innerHTML = gridHtml;
 }
 
 function resetFilters() {
-    if (document.getElementById('searchInput')) document.getElementById('searchInput').value = '';
-    if (document.getElementById('categoryFilter')) document.getElementById('categoryFilter').value = 'all';
-    if (document.getElementById('locationFilter')) document.getElementById('locationFilter').value = 'all';
-    if (document.getElementById('dateFilter')) document.getElementById('dateFilter').value = '';
-    displayEvents();
+  var searchInput = document.getElementById("searchInput");
+  var catFilter = document.getElementById("categoryFilter");
+  var locFilter = document.getElementById("locationFilter");
+  var dateFilter = document.getElementById("dateFilter");
+  if (searchInput) searchInput.value = "";
+  if (catFilter) catFilter.value = "all";
+  if (locFilter) locFilter.value = "all";
+  if (dateFilter) dateFilter.value = "";
+  displayEvents();
 }
 
 function bindEventsPageEvents() {
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const locationFilter = document.getElementById('locationFilter');
-    const dateFilter = document.getElementById('dateFilter');
-    if (searchInput) searchInput.addEventListener('keyup', displayEvents);
-    if (categoryFilter) categoryFilter.addEventListener('change', displayEvents);
-    if (locationFilter) locationFilter.addEventListener('change', displayEvents);
-    if (dateFilter) dateFilter.addEventListener('change', displayEvents);
-    displayEvents();
+  var searchInput = document.getElementById("searchInput");
+  var catFilter = document.getElementById("categoryFilter");
+  var locFilter = document.getElementById("locationFilter");
+  var dateFilter = document.getElementById("dateFilter");
+  if (searchInput) searchInput.addEventListener("keyup", displayEvents);
+  if (catFilter) catFilter.addEventListener("change", displayEvents);
+  if (locFilter) locFilter.addEventListener("change", displayEvents);
+  if (dateFilter) dateFilter.addEventListener("change", displayEvents);
+  displayEvents();
 }
 
-
-if (document.getElementById('featuredEvents')) initIndexPage();
-if (document.getElementById('searchInput')) bindEventsPageEvents();
+// التشغيل حسب الصفحة
+if (document.getElementById("featuredEvents")) initIndexPage();
+if (document.getElementById("searchInput")) bindEventsPageEvents();
